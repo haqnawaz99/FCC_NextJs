@@ -62,7 +62,6 @@ export default function Home({data}) {
 //matter you place it at bottom or at top
 export async function getServerSideProps() {
   const { events_categories } = await import('/data/data.json');
-
   return {
     props: {
       data: events_categories,
