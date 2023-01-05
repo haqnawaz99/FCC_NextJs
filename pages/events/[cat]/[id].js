@@ -1,6 +1,6 @@
 const { render } = require("react-dom")
 
-const Page = () =>{
+const EventPage = () =>{
     return(
         
         <div>
@@ -8,4 +8,4 @@ const Page = () =>{
         </div>
     )
 }
-export default Page;
+export default EventPage;

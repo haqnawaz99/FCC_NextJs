@@ -5,7 +5,7 @@ import styles from '../styles/Home.module.css'
 
 const inter = Inter({ subsets: ['latin'] })
 
-export default function Home() {
+export default function Home({data}) {
   return (
     <>
       <Head>
@@ -23,23 +23,33 @@ export default function Home() {
         </nav>
       </header>
       <main className={styles.main}>
-        <a href="">
+
+        {data.map((ev) => (
+          <a key={ev.id} href={`events/${ev.id}`}>
+            <Image width={200} height={200}
+            alt={ev.title} src={ev.image}/> 
+            <h2>{ev.title}</h2>
+            <p>{ev.description}</p>
+          </a>
+        ))}
+
+        {/* <a href="/events/london">
           <img src="" alt="" />
           <h2>Events in London</h2>
           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus ratione temporibus cumque, praesentium quod quia voluptatum laborum, consequuntur earum accusantium, beatae aperiam ducimus perferendis repellat nihil provident ullam repudiandae illum.</p>
         </a>
 
-        <a href="">
+        <a href="/events/San">
           <img src="" alt="" />
           <h2>Events in San Francisco</h2>
           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus ratione temporibus cumque, praesentium quod quia voluptatum laborum, consequuntur earum accusantium, beatae aperiam ducimus perferendis repellat nihil provident ullam repudiandae illum.</p>
         </a>
 
-        <a href="">
+        <a href="/events/Barc">
           <img src="" alt="" />
           <h2>Events in Barcelona</h2>
           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus ratione temporibus cumque, praesentium quod quia voluptatum laborum, consequuntur earum accusantium, beatae aperiam ducimus perferendis repellat nihil provident ullam repudiandae illum.</p>
-        </a>
+        </a> */}
       </main> 
 
       <footer className={styles.footer}>
@@ -47,4 +57,15 @@ export default function Home() {
       </footer> 
     </> 
   )
+}
+// it is server side rendering will be done first no
+//matter you place it at bottom or at top
+export async function getServerSideProps() {
+  const { events_categories } = await import('/data/data.json');
+
+  return {
+    props: {
+      data: events_categories,
+    },
+  };
 }

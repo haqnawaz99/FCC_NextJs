@@ -1,6 +1,6 @@
 const { render } = require("react-dom")
 
-const Page = () =>{
+const EvetnsPage = () =>{
     return(
         
         <div>
@@ -23,4 +23,4 @@ const Page = () =>{
         </div>
     )
 }
-export default Page;
+export default EvetnsPage ;

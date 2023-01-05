@@ -1,6 +1,6 @@
 const { render } = require("react-dom")
 
-const Page = () =>{
+const AboutUsPage = () =>{
     return(
         <div>
         <h1>About us page</h1>
@@ -11,4 +11,4 @@ const Page = () =>{
         </div>
     )
 }
-export default Page;
+export default AboutUsPage;

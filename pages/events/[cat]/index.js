@@ -1,6 +1,6 @@
 const { render } = require("react-dom")
 
-const Page = () =>{
+const EventCatPage = () =>{
     return(
         <div>
             <h1>Event in London</h1>
@@ -13,4 +13,4 @@ const Page = () =>{
         </div>
     )
 }
-export default Page;
+export default EventCatPage;
